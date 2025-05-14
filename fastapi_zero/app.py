@@ -1,10 +1,12 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 
+from fastapi_zero.schemas import Message
+
 app = FastAPI()
 
 
-@app.get('/')
+@app.get('/', response_model=Message)
 def root():
     return {'message': 'Hello World'}
 
